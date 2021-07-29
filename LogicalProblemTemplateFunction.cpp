@@ -9,47 +9,35 @@ IterableType GenericReverse(IterableType obj)
     return obj;
 }
 
+template <typename ComparabaleType>
+bool InternalValidate(ComparabaleType expectation,  ComparabaleType input, const std::string &testTypeName)
+{
+    bool testStatus = true;
+    if(expectation == GenericReverse(input))
+    {
+        std::cout << testTypeName << " Test - Pass\n";
+        testStatus &= true;
+    }
+    else
+    {
+        std::cerr << testTypeName << " Test - Fail\n";
+        testStatus &= false;
+    }
+    return testStatus;
+}
+
 bool Validate_GenericReverse()
 {
     bool testStatus = true;
     //Sanity Test
-    std::string name ("Sumit");
-    if("timuS" == GenericReverse(name))
-    {
-        std::cout << "Sanity Test - Pass\n";
-        testStatus &= true;
-    }
-    else
-    {
-        std::cerr << "Sanity Test - Fail\n";
-        testStatus &= false;
-    }
-
-    //Boundary Test
-    name = "a";
-    if("a" == GenericReverse(name))
-    {
-        std::cout << "Boundary Test - Pass\n";
-        testStatus &= true;
-    }
-    else
-    {
-        std::cout << "Clear Test - Fail\n";
-        testStatus &= false;
-    }
-
+    std::string name ("Sumit"), expected("timuS");
+    testStatus &= InternalValidate(expected, name, "Sanity");
+    //Boundry Test
+    name = "a", expected = "a";
+    testStatus &= InternalValidate(expected, name, "Boundry");
     //Clear Test
-    name.clear();
-    if("" == GenericReverse(name))
-    {
-        std::cout << "Clear Test - Pass\n";
-        testStatus &= true;
-    }
-    else
-    {
-        std::cout << "Clear Test - Fail\n";
-        testStatus &= false;
-    }
+    name.clear(), expected = "";
+    testStatus &= InternalValidate(expected, name, "Clear");
     return testStatus;
 }
 
