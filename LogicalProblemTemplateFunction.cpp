@@ -1,24 +1,52 @@
-//
-// Created by <> on DD/MM/YYYY.
-// Purpose: <Explain the intent - Suitable for problem requiring a function template>
-//
+#include <iostream>
+#include <algorithm>
 
-//Problem reverse template type that supports begin and end
-template <typename T>
-T Func (T t)
+//Problem : Reverse a template type that supports begin and end
+template <typename IterableType>
+IterableType GenericReverse(IterableType obj)
 {
-    return t;
+    std::reverse(obj.begin(), obj.end());
+    return obj;
 }
 
-int TestFunc()
+
+
+
+bool Validate_GenericReverse()
 {
-    int a = 5;
-    a = Func(a);
-    return a;
+    bool testStatus = true;
+    //Sanity Test
+    std::string name ("Sumit");
+    if("timuS" == GenericReverse(name))
+    {
+        std::cout << "Sanity Test - Pass\n";
+        testStatus &= true;
+    }
+    else
+    {
+        std::cerr << "Sanity Test - Fail\n";
+        testStatus &= false;
+    }
+
+    //Clear Test
+    name.clear();
+    if("" == GenericReverse(name))
+    {
+        std::cout << "Clear Test - Pass\n";
+        testStatus &= true;
+    }
+    else
+    {
+        std::cout << "Clear Test - Fail\n";
+        testStatus &= false;
+    }
+    return testStatus;
 }
 
 int main()
 {
-    TestFunc();
+    std::cout << "Validation Start\n" ;
+    bool validationStatus = Validate_GenericReverse();
+    std::cout << "Overall Validation status: " << (validationStatus?"Pass":"Fail");
     return 0;
 }
