@@ -42,8 +42,8 @@ bool Validate_ReverseString()
 
 int main()
 {
-    std::cout << "Test Start\n" ;
-    bool testResult = Validate_ReverseString();
-    std::cout << "Overall Test status: " << (testResult?"Pass":"Fail");
+    std::cout << "Validation Start\n" ;
+    bool validationStatus = Validate_ReverseString();
+    std::cout << "Overall Validation status: " << (validationStatus?"Pass":"Fail");
     return 0;
 }

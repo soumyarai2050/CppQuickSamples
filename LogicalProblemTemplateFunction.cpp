@@ -3,6 +3,7 @@
 // Purpose: <Explain the intent - Suitable for problem requiring a function template>
 //
 
+//Problem reverse template type that supports begin and end
 template <typename T>
 T Func (T t)
 {
