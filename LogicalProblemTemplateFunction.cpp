@@ -9,9 +9,6 @@ IterableType GenericReverse(IterableType obj)
     return obj;
 }
 
-
-
-
 bool Validate_GenericReverse()
 {
     bool testStatus = true;
@@ -25,6 +22,19 @@ bool Validate_GenericReverse()
     else
     {
         std::cerr << "Sanity Test - Fail\n";
+        testStatus &= false;
+    }
+
+    //Boundary Test
+    name = "a";
+    if("a" == GenericReverse(name))
+    {
+        std::cout << "Boundary Test - Pass\n";
+        testStatus &= true;
+    }
+    else
+    {
+        std::cout << "Clear Test - Fail\n";
         testStatus &= false;
     }
 

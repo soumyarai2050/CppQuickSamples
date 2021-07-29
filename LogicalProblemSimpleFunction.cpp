@@ -8,7 +8,6 @@ std::string ReverseString(std::string &name)
     return name;
 }
 
-
 bool Validate_ReverseString()
 {
     bool testStatus = true;
@@ -25,7 +24,20 @@ bool Validate_ReverseString()
         testStatus &= false;
     }
 
-    //Clear Test
+    //Boundary Test
+    name = "a";
+    if("a" == ReverseString(name))
+    {
+        std::cout << "Boundary Test - Pass\n";
+        testStatus &= true;
+    }
+    else
+    {
+        std::cout << "Clear Test - Fail\n";
+        testStatus &= false;
+    }
+
+    //Empty Test
     name.clear();
     if("" == ReverseString(name))
     {
@@ -37,6 +49,7 @@ bool Validate_ReverseString()
         std::cout << "Clear Test - Fail\n";
         testStatus &= false;
     }
+
     return testStatus;
 }
 
