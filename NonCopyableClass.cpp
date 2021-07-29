@@ -19,7 +19,6 @@ public:
 protected:
     int age;
     std::string name;
-
 };
 
 
