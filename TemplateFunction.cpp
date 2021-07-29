@@ -32,9 +32,9 @@ bool Validate_GenericReverse()
     //Sanity Test
     std::string name ("Sumit"), expected("timuS");
     testStatus &= InternalValidate(expected, name, "Sanity");
-    //Boundry Test
+    //Boundary Test
     name = "a", expected = "a";
-    testStatus &= InternalValidate(expected, name, "Boundry");
+    testStatus &= InternalValidate(expected, name, "Boundary");
     //Clear Test
     name.clear(), expected = "";
     testStatus &= InternalValidate(expected, name, "Clear");
