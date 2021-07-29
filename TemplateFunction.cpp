@@ -9,8 +9,8 @@ IterableType GenericReverse(IterableType obj)
     return obj;
 }
 
-template <typename ComparabaleType>
-bool InternalValidate(ComparabaleType expectation,  ComparabaleType input, const std::string &testTypeName)
+template <typename ComparableType>
+bool InternalValidate(ComparableType expectation, ComparableType input, const std::string &testTypeName)
 {
     bool testStatus = true;
     if(expectation == GenericReverse(input))
