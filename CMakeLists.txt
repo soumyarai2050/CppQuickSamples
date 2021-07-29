@@ -7,3 +7,4 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g3 -ggdb")
 
 add_executable(LogicalProblemSimpleFunction Function.cpp)
 add_executable(LogicalProblemTemplateFunction TemplateFunction.cpp)
+add_executable(NonCopyableClass NonCopyableClass.cpp)
