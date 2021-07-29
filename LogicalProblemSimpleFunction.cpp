@@ -3,7 +3,8 @@
 //Problem : Reverse a string
 std::string ReverseString(const std::string &name)
 {
-    return name;
+
+    return std::reverse(name);
 }
 
 
