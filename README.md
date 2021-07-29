@@ -1,2 +1,0 @@
-# CppQuickSamples
-QuickStartCppSamples
