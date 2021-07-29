@@ -1,16 +1,17 @@
 #include <iostream>
+#include <algorithm>
 
 //Problem : Reverse a string
-std::string ReverseString(const std::string &name)
+std::string ReverseString(std::string &name)
 {
-
-    return std::reverse(name);
+    std::reverse(name.begin(),name.end());
+    return name;
 }
 
 
 bool Validate_ReverseString()
 {
-    bool testStatus = false;
+    bool testStatus = true;
     //Sanity Test
     std::string name ("Sumit");
     if("timuS" == ReverseString(name))
