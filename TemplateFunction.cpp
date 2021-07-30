@@ -33,9 +33,8 @@ bool Validate_GenericReverse()
     bool testStatus = true;
     //Sanity Test
     std::string name ("Sumit"), expected("timuS");
-    std::vector testType = {"Sanity", "Boundary", "Clear"};
-    for (auto itr = testType.begin(); itr!=testType.end(); itr++)
-        testStatus &= InternalValidate(expected, name, *itr);
+    for (const char* cpTestType : {"Sanity", "Boundary", "Clear"})
+        testStatus &= InternalValidate(expected, name, cpTestType);
     return testStatus;
 }
 

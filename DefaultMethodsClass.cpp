@@ -21,7 +21,8 @@ public:
     }
 
     //Move Constructor
-    DefaultMethodsClass(DefaultMethodsClass&& obj):intVar{std::exchange(obj.intVar, 0)},intVector(std::move(obj.intVector))
+    DefaultMethodsClass(DefaultMethodsClass&& obj) noexcept
+    :intVar{std::exchange(obj.intVar, 0)},intVector(std::move(obj.intVector))
     {
         std::cout << "DefaultMethodsClass Move Constructor\n";
         Display();
@@ -40,7 +41,7 @@ public:
     }
 
     //Move Assignment Operator
-    DefaultMethodsClass& operator=(DefaultMethodsClass&& obj)
+    DefaultMethodsClass& operator=(DefaultMethodsClass&& obj) noexcept
     {
         intVar = std::exchange(obj.intVar,0);
         intVector = std::move(obj.intVector);
@@ -61,14 +62,12 @@ private:
     void Display() const
     {
         std::cout << "intVar: " << intVar << " intVector: ";
-        for (cItrIntVector cItr = intVector.begin(); cItr != intVector.end(); cItr++)
-            std::cout << *cItr << " ";
+        for (int cItr : intVector)
+            std::cout << cItr << " ";
         std::cout << std::endl;
     }
     int intVar;
     std::vector<int> intVector;
-    using cItrIntVector = std::vector<int>::const_iterator;
-
 };
 
 int main()
