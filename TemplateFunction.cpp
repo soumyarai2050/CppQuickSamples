@@ -1,7 +1,8 @@
 #include <iostream>
 #include <algorithm>
 
-//Problem : Reverse a template type that supports begin and end
+//Problem : Reverse a template type that is Iterable
+//Solution
 template <typename IterableType>
 IterableType GenericReverse(IterableType obj)
 {
@@ -9,6 +10,7 @@ IterableType GenericReverse(IterableType obj)
     return obj;
 }
 
+//Test
 template <typename ComparableType>
 bool InternalValidate(ComparableType expectation, ComparableType input, const std::string &testTypeName)
 {
@@ -31,13 +33,9 @@ bool Validate_GenericReverse()
     bool testStatus = true;
     //Sanity Test
     std::string name ("Sumit"), expected("timuS");
-    testStatus &= InternalValidate(expected, name, "Sanity");
-    //Boundary Test
-    name = "a", expected = "a";
-    testStatus &= InternalValidate(expected, name, "Boundary");
-    //Clear Test
-    name.clear(), expected = "";
-    testStatus &= InternalValidate(expected, name, "Clear");
+    std::vector testType = {"Sanity", "Boundary", "Clear"};
+    for (auto itr = testType.begin(); itr!=testType.end(); itr++)
+        testStatus &= InternalValidate(expected, name, *itr);
     return testStatus;
 }
 
