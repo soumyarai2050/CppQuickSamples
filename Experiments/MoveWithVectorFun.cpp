@@ -55,16 +55,29 @@ int main()
 {
     //Person p1("Sumit");
     std::vector<Person> v1;
-    //v1.reserve(5);//Remove this and see the fun
-    v1.push_back(std::move("T1"));
-    v1.push_back(std::move("T2"));
-    v1.push_back(std::move("T3"));
-    v1.push_back(std::move("T4"));
+    //avoids jitter in performance on vector resizes (disable the line and notice the calls more than double)
+    v1.reserve(7);
+    //Only one move constructor with const char * as input
+    v1.emplace_back("T1");
+    v1.emplace_back("T2");
+    v1.emplace_back("T3");
+    v1.emplace_back("T4");
+    v1.emplace_back("T5");
+    v1.emplace_back("T6");
+    //Inefficient : 2 two constructors per push back
+//    v1.push_back("T1");
+//    v1.push_back("T2");
+//    v1.push_back("T3");
+//    v1.push_back("T4");
 
-    //std::vector<Person> v1{"Sumit", "Ayra"}, v2{"Amit", "Ishika"};
-    //std::cout << "Moving V2 to V1: \n";
-    //v1 = std::move(v2);
-    //v1 = v2;
+    std::vector<Person> v2;
+    v2.reserve(3);
+    v2.emplace_back("F1");
+    v2.emplace_back("F2");
+    std::cout << "Moving V2 to V1: \n";
+    //No assignment
+    v1 = std::move(v2);
+    //v1 = v2; // assignment per field
     getchar();
     return 0;
 }
