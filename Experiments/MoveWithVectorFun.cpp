@@ -68,6 +68,7 @@ int main()
     v1.emplace_back("T4");
     v1.emplace_back("T5");
     v1.emplace_back("T6");
+    std::cout << (std::find(v1.begin(), v1.end(), "T5")!=v1.end()?"Found":"NotFount");
     //Inefficient : 2 two constructors per push back
 //    v1.push_back("T1");
 //    v1.push_back("T2");

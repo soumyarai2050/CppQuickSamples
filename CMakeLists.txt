@@ -14,4 +14,4 @@ add_executable(MoveWithVectorFun Experiments/MoveWithVectorFun.cpp)
 add_executable(MoveWithMapFun Experiments/MoveWithMapFun.cpp)
 add_executable(StringStream Experiments/StringStream.cpp)
 add_executable(StructuredBinding Experiments/StructuredBinding.cpp)
-
+add_executable(StlAlgos StlAlgos.cpp)
