@@ -11,3 +11,5 @@ add_executable(DefaultMethodsClass DefaultMethodsClass.cpp)
 add_executable(TemplateFunction TemplateFunction.cpp)
 add_executable(Test1 Test1.cpp)
 add_executable(MoveWithVectorFun Experiments/MoveWithVectorFun.cpp)
+add_executable(MoveWithMapFun Experiments/MoveWithMapFun.cpp)
+
