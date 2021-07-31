@@ -16,7 +16,7 @@ class Person
             }
 
 
-            Person(const char*&& name_)noexcept : name(std::move(name_))
+            explicit Person(const char*&& name_)noexcept : name(name_)
             {
                 std::cout << "Move Init Person: " << this << " from: " << &name_ <<  " " << name << std::endl;
             }
