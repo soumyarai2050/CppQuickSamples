@@ -33,8 +33,9 @@ bool Validate_GenericReverse()
     bool testStatus = true;
     //Sanity Test
     std::string name ("Sumit"), expected("timuS");
-    for (const char* cpTestType : {"Sanity", "Boundary", "Clear"})
-        testStatus &= InternalValidate(expected, name, cpTestType);
+    std::array <const char*, 3> TestTypes =  {"Sanity", "Boundary", "Clear"};
+    for (auto testType : TestTypes)
+        testStatus &= InternalValidate(expected, name, testType);
     return testStatus;
 }
 
@@ -42,6 +43,6 @@ int main()
 {
     std::cout << "Validation Start\n" ;
     bool validationStatus = Validate_GenericReverse();
-    std::cout << "Overall Validation status: " << (validationStatus?"Pass":"Fail");
+    std::cout << "\nOverall Validation status: " << (validationStatus?"Pass":"Fail");
     return 0;
 }
