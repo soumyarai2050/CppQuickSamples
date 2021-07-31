@@ -1,11 +1,12 @@
 #include <iostream>
 #include <algorithm>
 
-
 class NonCopyable {
-protected: // Non-user-instantiable (purpose is to inherit and make sub-class non-copiable
+protected: // Non-instantiable, inherit to make sub-class non-copiable
     NonCopyable() = default;
     ~NonCopyable() = default;
+public:
+    //explicit copy operation inhibits implicit move methods
     NonCopyable(const NonCopyable&) = delete;
     NonCopyable& operator=(const NonCopyable&) = delete;
 };
@@ -13,14 +14,13 @@ protected: // Non-user-instantiable (purpose is to inherit and make sub-class no
 class Person : public NonCopyable
 {
 public:
-    Person(const int age, const std::string& name):age(age), name(name){}
+    Person(const int age, std::string&& name):age(age), name(std::move(name)){}
     void Display () { std::cout << "Age: " << age << " Name: " << name << std::endl; }
 
 protected:
     int age;
     std::string name;
 };
-
 
 int main()
 {
