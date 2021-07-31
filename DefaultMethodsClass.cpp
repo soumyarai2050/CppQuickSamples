@@ -68,8 +68,8 @@ private:
     void Display() const
     {
         std::cout << "intVar: " << intVar << " intVector: ";
-        for (int cItr : intVector)
-            std::cout << cItr << " ";
+        for (const int val : intVector)
+            std::cout << val << " ";
         std::cout << std::endl;
     }
     int intVar;

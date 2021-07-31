@@ -27,25 +27,29 @@ class Person
             }
 
             Person& operator= (Person&& person_)noexcept
-                    {
+            {
                 if(this != &person_)
                 {
                     name = std::move(person_.name);
                     std::cout << "Move Person: " << this << " from: " << &person_ << " " << name << std::endl;
                 }
                 return *this;
-                    }
+            }
 
-                    Person& operator= (const Person& person_)
-                            {
+            Person& operator= (const Person& person_)
+            {
                 if(this != &person_)
                 {
                     name = person_.name;
                     std::cout << "Assign Person: " << this << " from: " << &person_ << " " << name << std::endl;
                 }
                 return *this;
-                            }
+            }
 
+            const std::string GetName() const
+            {
+                return name;
+            }
         private:
             std::string name;
 
@@ -78,6 +82,8 @@ int main()
     //No assignment
     v1 = std::move(v2);
     //v1 = v2; // assignment per field
+    for(const Person &p : v1)
+        std::cout << "Name: " << p.GetName() << std::endl; // No copy or assignment NRVO
     getchar();
     return 0;
 }
