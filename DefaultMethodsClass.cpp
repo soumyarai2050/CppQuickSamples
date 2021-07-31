@@ -32,22 +32,28 @@ public:
     //Copy Assignment Operator
     DefaultMethodsClass& operator=(const DefaultMethodsClass& obj)
     {
-        intVar = obj.intVar;
-        intVector = obj.intVector;
-        std::cout << "DefaultMethodsClass Copy Assignment Operator\n";
-        Display();
-        obj.Display();
+        if(this != &obj)
+        {
+            intVar = obj.intVar;
+            intVector = obj.intVector;
+            std::cout << "DefaultMethodsClass Copy Assignment Operator\n";
+            Display();
+            obj.Display();
+        }
         return *this;
     }
 
     //Move Assignment Operator
     DefaultMethodsClass& operator=(DefaultMethodsClass&& obj) noexcept
     {
-        intVar = std::exchange(obj.intVar,0);
-        intVector = std::move(obj.intVector);
-        std::cout << "DefaultMethodsClass Move Assignment Operator\n";
-        Display();
-        obj.Display();
+        if(this != &obj)
+        {
+            intVar = std::exchange(obj.intVar,0);
+            intVector = std::move(obj.intVector);
+            std::cout << "DefaultMethodsClass Move Assignment Operator\n";
+            Display();
+            obj.Display();
+        }
         return *this;
     }
 
