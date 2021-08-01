@@ -46,6 +46,12 @@ class Person
                 return *this;
             }
 
+            //friend based overload allows for "PersonName" == personObject comparison
+            friend bool operator== (const Person& person1, const Person& person2)
+            {
+                return person1.name == person2.name;
+            }
+
             const std::string GetName() const
             {
                 return name;
@@ -68,7 +74,8 @@ int main()
     v1.emplace_back("T4");
     v1.emplace_back("T5");
     v1.emplace_back("T6");
-    std::cout << (std::find(v1.begin(), v1.end(), "T5")!=v1.end()?"Found":"NotFount");
+    //To call find , you must implement operator==
+    std::cout << ((std::find(v1.begin(), v1.end(), Person("T5"))!=v1.end())?"Found":"NotFount");
     //Inefficient : 2 two constructors per push back
 //    v1.push_back("T1");
 //    v1.push_back("T2");

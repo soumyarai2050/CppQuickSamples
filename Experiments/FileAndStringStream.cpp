@@ -19,6 +19,9 @@ int main()
         //Write high precision value:
         double highPrecisionVal = 27.5678923456765432;
         fileWriter << "highPrecisionVal: " << std::setprecision(20) << highPrecisionVal << std::endl;
+        //Write text as binary (example to demonstrate how we can write bianry data
+        fileWriter.write("Sumit Kumar" , sizeof("Sumit Kumar"));
+        // to read binary data or block-of-text where you know the size : use fileReader.read(buffer, size)
     }
     //Read form file word by word
     {
