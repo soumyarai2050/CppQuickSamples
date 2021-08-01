@@ -52,7 +52,7 @@ class Person
                 return person1.name == person2.name;
             }
 
-            const std::string GetName() const
+            [[nodiscard]]const std::string GetName() const
             {
                 return name;
             }
