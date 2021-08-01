@@ -37,11 +37,10 @@ int main()
     {
         std::ifstream fileReader("F1.txt");
         std::string line;
-        std::getline (fileReader , line);
-        std::cout << "Line: " << line << std::endl;
+        while (std::getline (fileReader , line))
+            std::cout << "Line: " << line << std::endl;
         //Later do an example of reading tabular data :
         //https://www.youtube.com/watch?v=8IHAwmbUuKU&list=PLgnQpQtFTOGRM59sr3nSL8BmeMZR9GCIA&index=11 time:22:11
-
     }
     getchar();
     return 0;
