@@ -4,6 +4,8 @@
 
 int main()
 {
+    std::chrono::milliseconds time_to_sleep = 100ms;
+
     auto start = std::chrono::high_resolution_clock::now();
     sleep(2);
     auto end = std::chrono::high_resolution_clock::now();

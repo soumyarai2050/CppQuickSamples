@@ -6,7 +6,7 @@ class DefaultMethodsClass
 {
 public:
     //Default Constructor
-    DefaultMethodsClass():intVar(5),intVector{3,4}
+    DefaultMethodsClass()
     {
         std::cout << "DefaultMethodsClass Default Constructor\n";
         Display();
@@ -72,8 +72,8 @@ private:
             std::cout << val << " ";
         std::cout << std::endl;
     }
-    int intVar;
-    std::vector<int> intVector;
+    int intVar = 5;
+    std::vector<int> intVector {3,4};
 };
 
 int main()
