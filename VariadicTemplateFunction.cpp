@@ -12,7 +12,6 @@
 //    return 0;
 //};
 
-
 template <typename U, typename T>
 auto Add(U u, T t)
 {
@@ -22,6 +21,8 @@ auto Add(U u, T t)
 template <typename U, typename... T>
 auto Add(U u, T... t)
 {
+    //std::cout << "sizeof...(T): " << sizeof...(T) << std::endl;
+    static_assert(sizeof...(T) >1, "Minimum 2 parameters required to add numbers");
     return (u + Add(t...));
 };
 int main()
