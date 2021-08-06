@@ -1,25 +1,31 @@
 
 #include<iostream>
 
-//template <typename U>
-//U Add(U u)
+//template <typename T>
+//T Add(T t)
 //{
-//    return u;
+//    return t;
 //};
 
-auto Add()
+//auto Add()
+//{
+//    return 0;
+//};
+
+
+template <typename U, typename T>
+auto Add(U u, T t)
 {
-    return 0;
+    return (u + t);
 };
 
-
 template <typename U, typename... T>
-U Add(U u, T... t)
+auto Add(U u, T... t)
 {
-    return Add(t...);
+    return (u + Add(t...));
 };
 int main()
 {
-    std::cout << Add(4,5,6,7,8,9);
+    std::cout << Add(4,5.6,6,7.3,8,9); //graceful return type with auto
     return 0;
 }
