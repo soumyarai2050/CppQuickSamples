@@ -15,7 +15,11 @@ class Person : public NonCopyable
 {
 public:
     Person(const int age, std::string&& name):age(age), name(std::move(name)){}
-    void Display () { std::cout << "Age: " << age << " Name: " << name << std::endl; }
+    friend std::ostream& operator<< (std::ostream &os, const Person& p)
+    {
+        os << "Age: " << p.age << " Name: " << p.name << std::endl;
+        return os;
+    }
 
 protected:
     int age;
@@ -25,10 +29,10 @@ protected:
 int main()
 {
     Person p1(39, "Sumit");
-    p1.Display();
+    std::cout << p1;
     Person p2(9, "Ayra");
     //p1 = p2; // use of deleted function compiler error
-    p2.Display();
+    std::cout << p2;
     return 0;
 }
 
